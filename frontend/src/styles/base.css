@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--kc-gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.brand-mark {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--kc-paper);
+  box-shadow: var(--kc-shadow);
+}
+
+.brand-mark--compact {
+  width: 44px;
+  height: 44px;
+  box-shadow: none;
+}
+
+.brand-mark__k {
+  position: relative;
+  z-index: 2;
+  color: var(--kc-navy);
+  font-size: 2.1rem;
+  font-weight: 900;
+}
+
+.brand-mark--compact .brand-mark__k {
+  font-size: 1.15rem;
+}
+
+.brand-mark span:not(.brand-mark__k) {
+  position: absolute;
+  border-radius: 999px;
+  transform: rotate(32deg);
+}
+
+.brand-mark__gold {
+  width: 22px;
+  height: 120px;
+  right: 14px;
+  background: var(--kc-gold);
+}
+
+.brand-mark__burgundy {
+  width: 12px;
+  height: 105px;
+  right: 34px;
+  background: var(--kc-burgundy);
+}
+
+.brand-mark__steel {
+  width: 9px;
+  height: 95px;
+  right: 51px;
+  background: var(--kc-steel);
+}
+
+.app-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: var(--kc-navy);
+  background: var(--kc-cream);
+  font-weight: 800;
+}
+
+.empty-section {
+  padding: 42px;
+  min-height: 360px;
+}
+
+.empty-section h1 {
+  margin: 0;
+  color: var(--kc-navy);
+}

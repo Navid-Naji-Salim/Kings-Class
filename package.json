@@ -1,0 +1,28 @@
+{
+  "name": "kings-class",
+  "version": "0.1.0",
+  "private": true,
+  "description": "King's Class school management prototype.",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,yellow \"npm run dev --workspace backend\" \"npm run dev --workspace frontend\"",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "lint": "npm run lint --workspace frontend",
+    "db:start": "npm run db:start --workspace backend",
+    "db:list": "npm run db:list --workspace backend",
+    "prisma:generate": "npm run prisma:generate --workspace backend",
+    "setup": "npm run prisma:push --workspace backend && npm run seed --workspace backend",
+    "seed": "npm run seed --workspace backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Navid-Naji-Salim/Kings-Class.git"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "concurrently": "^10.0.0"
+  }
+}
