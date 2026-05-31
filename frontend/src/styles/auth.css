@@ -4,9 +4,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background:
-    linear-gradient(145deg, rgba(2, 26, 52, 0.96), rgba(6, 39, 75, 0.88)),
-    var(--kc-navy);
+  background: var(--kc-cream) url("/login-page-background.png") center / cover no-repeat;
 }
 
 .login-art {
@@ -14,34 +12,7 @@
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-}
-
-.school-ribbon span {
-  position: absolute;
-  width: 22%;
-  height: 140%;
-  top: -18%;
-  right: 9%;
-  border-radius: 999px;
-  transform: rotate(30deg);
-  opacity: 0.92;
-}
-
-.school-ribbon span:nth-child(1) {
-  right: 8%;
-  background: var(--kc-gold);
-}
-
-.school-ribbon span:nth-child(2) {
-  right: 25%;
-  width: 8%;
-  background: var(--kc-burgundy);
-}
-
-.school-ribbon span:nth-child(3) {
-  right: 35%;
-  width: 5%;
-  background: var(--kc-steel);
+  display: none;
 }
 
 .login-panel {
@@ -140,21 +111,5 @@
 @media (max-width: 900px) {
   .login-panel {
     padding: 24px;
-  }
-
-  .school-ribbon span {
-    width: 38%;
-    right: -2%;
-    opacity: 0.72;
-  }
-
-  .school-ribbon span:nth-child(2) {
-    right: 28%;
-    width: 13%;
-  }
-
-  .school-ribbon span:nth-child(3) {
-    right: 43%;
-    width: 8%;
   }
 }
