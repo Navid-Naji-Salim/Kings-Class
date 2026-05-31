@@ -4,7 +4,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: var(--kc-cream) url("/login-page-background.png") center / cover no-repeat;
+  background: var(--kc-cream) url("/login-page-background-2.png") center / cover no-repeat;
 }
 
 .login-art {
