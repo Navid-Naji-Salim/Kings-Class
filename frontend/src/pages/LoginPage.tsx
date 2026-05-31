@@ -2,7 +2,6 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { ArrowRight, LockKeyhole, Mail } from "lucide-react";
-import { BrandMark } from "../components/ui/BrandMark";
 import { useAuth } from "../hooks/useAuth";
 
 export function LoginPage() {
@@ -40,22 +39,11 @@ export function LoginPage() {
           <span />
           <span />
         </div>
-        <div className="dot-field" aria-hidden="true" />
-        <div className="login-art__content">
-          <BrandMark />
-          <p className="eyebrow">King's Class Admin</p>
-          <h1>Every class update, beautifully organized.</h1>
-          <p>
-            A warm, school-branded space for teachers and administrators to keep families close to the classroom.
-          </p>
-        </div>
       </section>
 
       <section className="login-panel" aria-label="Admin sign in">
         <div className="login-card">
-          <p className="eyebrow">Secure access</p>
-          <h2>Welcome back</h2>
-          <p className="login-card__intro">Sign in with the seeded admin account to open the prototype.</p>
+          <h2>King's Class</h2>
 
           <form onSubmit={handleSubmit}>
             <label>
@@ -82,7 +70,7 @@ export function LoginPage() {
             {error ? <p className="form-error">{error}</p> : null}
 
             <button className="primary-action" type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Signing in..." : "Enter Admin Area"}
+              {isSubmitting ? "Signing in..." : "Log in"}
               <ArrowRight size={18} />
             </button>
           </form>

@@ -1,21 +1,19 @@
 .login-page {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(420px, 0.9fr);
-  background: var(--kc-cream);
-}
-
-.login-art {
   position: relative;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  min-height: 100vh;
-  padding: 64px;
-  color: var(--kc-paper);
   background:
     linear-gradient(145deg, rgba(2, 26, 52, 0.96), rgba(6, 39, 75, 0.88)),
     var(--kc-navy);
+}
+
+.login-art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .school-ribbon span {
@@ -23,9 +21,10 @@
   width: 22%;
   height: 140%;
   top: -18%;
-  right: 7%;
+  right: 9%;
   border-radius: 999px;
   transform: rotate(30deg);
+  opacity: 0.92;
 }
 
 .school-ribbon span:nth-child(1) {
@@ -45,47 +44,19 @@
   background: var(--kc-steel);
 }
 
-.dot-field {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  left: 10%;
-  bottom: 10%;
-  opacity: 0.18;
-  background-image: radial-gradient(var(--kc-paper) 1.5px, transparent 1.5px);
-  background-size: 18px 18px;
-}
-
-.login-art__content {
-  position: relative;
-  z-index: 2;
-  max-width: 590px;
-}
-
-.login-art h1 {
-  margin: 18px 0;
-  max-width: 560px;
-  font-size: clamp(2.7rem, 5vw, 5.6rem);
-  line-height: 0.96;
-  letter-spacing: 0;
-}
-
-.login-art p:last-child {
-  max-width: 520px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 1.06rem;
-  line-height: 1.7;
-}
-
 .login-panel {
+  position: relative;
+  z-index: 1;
   display: grid;
   place-items: center;
+  width: 100%;
+  min-height: 100vh;
   padding: 32px;
 }
 
 .login-card {
   width: min(100%, 440px);
-  padding: 34px;
+  padding: 38px 34px 34px;
   border: 1px solid rgba(56, 85, 116, 0.18);
   border-radius: var(--kc-radius);
   background: rgba(255, 255, 255, 0.92);
@@ -93,16 +64,10 @@
 }
 
 .login-card h2 {
-  margin: 0;
+  margin: 0 0 28px;
   color: var(--kc-navy);
   font-size: 2.15rem;
   letter-spacing: 0;
-}
-
-.login-card__intro {
-  margin: 8px 0 28px;
-  color: var(--kc-muted);
-  line-height: 1.6;
 }
 
 .login-card form,
@@ -173,16 +138,23 @@
 }
 
 @media (max-width: 900px) {
-  .login-page {
-    grid-template-columns: 1fr;
-  }
-
-  .login-art {
-    min-height: 430px;
-    padding: 36px 24px;
-  }
-
   .login-panel {
     padding: 24px;
+  }
+
+  .school-ribbon span {
+    width: 38%;
+    right: -2%;
+    opacity: 0.72;
+  }
+
+  .school-ribbon span:nth-child(2) {
+    right: 28%;
+    width: 13%;
+  }
+
+  .school-ribbon span:nth-child(3) {
+    right: 43%;
+    width: 8%;
   }
 }
