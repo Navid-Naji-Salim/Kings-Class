@@ -2,25 +2,49 @@
   min-height: 100vh;
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
+  transition: grid-template-columns 240ms ease;
   background:
     radial-gradient(circle at 88% 4%, rgba(219, 161, 69, 0.18), transparent 26%),
     var(--kc-cream);
+}
+
+.admin-shell--sidebar-collapsed {
+  grid-template-columns: 86px minmax(0, 1fr);
 }
 
 .admin-sidebar {
   position: sticky;
   top: 0;
   height: 100vh;
-  padding: 24px 18px;
+  padding: 19px 15px;
   color: var(--kc-paper);
-  background: var(--kc-navy);
+  background:
+    linear-gradient(180deg, rgba(6, 39, 75, 0.985), rgba(2, 26, 52, 0.985)),
+    radial-gradient(circle at 25% 10%, rgba(219, 161, 69, 0.26), transparent 18rem);
+  overflow: hidden;
+  transition: padding 240ms ease;
 }
 
 .admin-brand {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 8px 26px;
+}
+
+.admin-brand__identity {
+  min-width: 0;
+  display: flex;
+  align-items: center;
   gap: 12px;
-  padding: 8px 8px 28px;
+}
+
+.admin-brand__copy {
+  min-width: 0;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
 .admin-brand strong,
@@ -37,21 +61,51 @@
   font-size: 0.82rem;
 }
 
+.sidebar-collapse-button {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.76);
+  background: transparent;
+}
+
+.sidebar-collapse-button:hover {
+  color: var(--kc-paper);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-collapse-button:active {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .admin-tabs {
   display: grid;
-  gap: 8px;
+  gap: 7px;
 }
 
 .admin-tabs a {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 12px;
-  border-radius: var(--kc-radius);
+  gap: 13px;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 16px;
   color: rgba(255, 255, 255, 0.76);
   text-decoration: none;
   font-weight: 780;
+  transition:
+    background-color 240ms ease,
+    color 240ms ease;
+}
+
+.admin-tabs a svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
 }
 
 .admin-tabs a.active,
@@ -61,7 +115,62 @@
 }
 
 .admin-tabs a.active {
+  background: rgba(219, 161, 69, 0.22);
   box-shadow: inset 3px 0 0 var(--kc-gold);
+}
+
+.admin-sidebar--collapsed {
+  padding-inline: 11px;
+}
+
+.admin-sidebar--collapsed .admin-brand {
+  display: grid;
+  justify-items: center;
+  padding-inline: 0;
+}
+
+.admin-sidebar--collapsed .admin-brand__identity {
+  justify-content: center;
+}
+
+.admin-sidebar--collapsed .admin-brand__copy {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-8px);
+}
+
+.admin-sidebar--collapsed .sidebar-collapse-button {
+  margin-top: 10px;
+}
+
+.admin-sidebar--collapsed .admin-tabs {
+  justify-items: center;
+  gap: 10px;
+}
+
+.admin-sidebar--collapsed .admin-tabs a {
+  width: 46px;
+  height: 46px;
+  min-height: 46px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 15px;
+}
+
+.admin-sidebar--collapsed .admin-tabs a span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.admin-sidebar--collapsed .admin-tabs a svg {
+  width: 18px;
+  height: 18px;
 }
 
 .admin-main {
@@ -145,15 +254,66 @@
     grid-template-columns: 1fr;
   }
 
+  .admin-shell--sidebar-collapsed {
+    grid-template-columns: 1fr;
+  }
+
   .admin-sidebar {
     position: static;
     height: auto;
+  }
+
+  .admin-sidebar--collapsed {
+    padding: 19px 15px;
+  }
+
+  .admin-sidebar--collapsed .admin-brand {
+    display: flex;
+    justify-items: initial;
+    padding: 6px 8px 26px;
+  }
+
+  .admin-sidebar--collapsed .admin-brand__identity {
+    justify-content: flex-start;
+  }
+
+  .admin-sidebar--collapsed .admin-brand__copy {
+    width: auto;
+    opacity: 1;
+    overflow: visible;
+    transform: none;
+  }
+
+  .admin-sidebar--collapsed .sidebar-collapse-button {
+    margin-top: 0;
   }
 
   .admin-tabs {
     grid-auto-flow: column;
     grid-auto-columns: max-content;
     overflow-x: auto;
+  }
+
+  .admin-sidebar--collapsed .admin-tabs {
+    justify-items: initial;
+    gap: 7px;
+  }
+
+  .admin-sidebar--collapsed .admin-tabs a {
+    width: auto;
+    min-height: 46px;
+    display: flex;
+    gap: 13px;
+    padding: 0 14px;
+  }
+
+  .admin-sidebar--collapsed .admin-tabs a span {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 
   .admin-topbar {

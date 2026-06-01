@@ -1,4 +1,5 @@
-import { Bell, BookOpen, LogOut, MessageCircle, Settings, UsersRound } from "lucide-react";
+import { useState } from "react";
+import { Bell, BookOpen, LogOut, Menu, MessageCircle, PanelLeftClose, Settings, UsersRound } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { BrandMark } from "../ui/BrandMark";
@@ -13,16 +14,28 @@ const navItems = [
 
 export function AdminLayout() {
   const { user, logout } = useAuth();
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   return (
-    <main className="admin-shell">
-      <aside className="admin-sidebar">
+    <main className={`admin-shell${isSidebarCollapsed ? " admin-shell--sidebar-collapsed" : ""}`}>
+      <aside className={`admin-sidebar${isSidebarCollapsed ? " admin-sidebar--collapsed" : ""}`}>
         <div className="admin-brand">
-          <BrandMark compact />
-          <div>
-            <strong>King's Class</strong>
-            <span>Admin Studio</span>
+          <div className="admin-brand__identity">
+            <BrandMark compact />
+            <div className="admin-brand__copy">
+              <strong>King's Class</strong>
+              <span>Admin Studio</span>
+            </div>
           </div>
+          <button
+            className="sidebar-collapse-button"
+            type="button"
+            aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+            aria-pressed={isSidebarCollapsed}
+            onClick={() => setIsSidebarCollapsed((current) => !current)}
+          >
+            {isSidebarCollapsed ? <Menu size={18} /> : <PanelLeftClose size={18} />}
+          </button>
         </div>
 
         <nav className="admin-tabs" aria-label="Admin navigation">
