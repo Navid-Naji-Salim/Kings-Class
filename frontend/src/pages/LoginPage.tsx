@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { ArrowRight, LockKeyhole, Mail } from "lucide-react";
+import { ArrowRight, LoaderCircle, LockKeyhole, Mail } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 
 export function LoginPage() {
@@ -70,8 +70,8 @@ export function LoginPage() {
             {error ? <p className="form-error">{error}</p> : null}
 
             <button className="primary-action" type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Signing in..." : "Log in"}
-              <ArrowRight size={18} />
+              {isSubmitting ? "Logging in..." : "Log in"}
+              {isSubmitting ? <LoaderCircle className="primary-action__spinner" size={18} /> : <ArrowRight size={18} />}
             </button>
           </form>
         </div>
