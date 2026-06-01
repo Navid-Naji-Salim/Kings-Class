@@ -27,24 +27,25 @@ export function AdminLayout() {
               <span>Admin Studio</span>
             </div>
           </div>
-          <button
-            className="sidebar-collapse-button"
-            type="button"
-            aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-            aria-pressed={isSidebarCollapsed}
-            onClick={() => setIsSidebarCollapsed((current) => !current)}
-          >
-            {isSidebarCollapsed ? <Menu size={18} /> : <PanelLeftClose size={18} />}
-          </button>
         </div>
 
         <nav className="admin-tabs" aria-label="Admin navigation">
           {navItems.map(({ to, label, icon: Icon }) => (
             <NavLink key={to} to={to}>
-              <Icon size={18} />
+              <Icon className="nav-icon" size={18} />
               <span>{label}</span>
             </NavLink>
           ))}
+          <button
+            className="nav-control"
+            type="button"
+            aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+            aria-pressed={isSidebarCollapsed}
+            onClick={() => setIsSidebarCollapsed((current) => !current)}
+          >
+            {isSidebarCollapsed ? <Menu className="nav-icon" size={18} /> : <PanelLeftClose className="nav-icon" size={18} />}
+            <span>{isSidebarCollapsed ? "Expand" : "Collapse"}</span>
+          </button>
         </nav>
       </aside>
 
