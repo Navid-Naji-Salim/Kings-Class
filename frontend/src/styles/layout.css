@@ -82,13 +82,12 @@
 .nav-control {
   font: inherit;
   position: relative;
-  margin-top: 15px;
 }
 
 .nav-control-divider {
   display: block;
   height: 1px;
-  margin: 3px 0.9rem -11px;
+  margin: 8px 0.9rem;
   background: rgba(255, 255, 255, 0.12);
 }
 
@@ -161,11 +160,7 @@
 
 .admin-sidebar--collapsed .nav-control-divider {
   width: 38px;
-  margin: 3px auto -10px;
-}
-
-.admin-sidebar--collapsed .nav-control {
-  margin-top: 17px;
+  margin: 7px auto;
 }
 
 .admin-sidebar--collapsed .admin-tabs a,
@@ -370,10 +365,6 @@
   .nav-control-divider,
   .admin-sidebar--collapsed .nav-control-divider {
     display: none;
-  }
-
-  .admin-sidebar--collapsed .nav-control {
-    margin-top: 15px;
   }
 
   .admin-sidebar--collapsed .admin-tabs a,
