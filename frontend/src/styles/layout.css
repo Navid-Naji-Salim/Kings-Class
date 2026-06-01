@@ -128,14 +128,24 @@
 
 .admin-sidebar--collapsed .admin-brand {
   display: grid;
+  justify-content: center;
   justify-items: center;
   padding-inline: 0;
 }
 
 .admin-sidebar--collapsed .admin-brand__identity {
+  display: grid;
+  place-items: center;
   justify-content: center;
   width: 46px;
+  height: 46px;
   gap: 0;
+}
+
+.admin-sidebar--collapsed .brand-mark--compact {
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
 }
 
 .admin-sidebar--collapsed .admin-brand__copy {
