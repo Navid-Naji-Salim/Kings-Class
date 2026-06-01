@@ -30,14 +30,16 @@ export function AdminLayout() {
 
         <nav className="admin-tabs" aria-label="Admin navigation">
           {navItems.map(({ to, label, icon: Icon }) => (
-            <NavLink key={to} to={to}>
+            <NavLink key={to} to={to} data-tooltip={label}>
               <Icon className="nav-icon" size={18} />
               <span>{label}</span>
             </NavLink>
           ))}
+          <span className="nav-control-divider" aria-hidden="true" />
           <button
             className="nav-control"
             type="button"
+            data-tooltip={isSidebarCollapsed ? "Expand" : "Collapse"}
             aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
             aria-pressed={isSidebarCollapsed}
             onClick={() => setIsSidebarCollapsed((current) => !current)}
