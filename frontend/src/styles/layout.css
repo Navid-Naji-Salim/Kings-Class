@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 6px 8px 26px;
+  padding: 8px 8px 28px;
 }
 
 .admin-brand__identity {
@@ -47,18 +47,12 @@
     transform 180ms ease;
 }
 
-.admin-brand strong,
-.admin-brand span {
+.admin-brand strong {
   display: block;
 }
 
 .admin-brand strong {
   font-size: 1.04rem;
-}
-
-.admin-brand span {
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.82rem;
 }
 
 .admin-tabs {
@@ -86,6 +80,18 @@
 
 .nav-control {
   font: inherit;
+  position: relative;
+  margin-top: 15px;
+}
+
+.nav-control::before {
+  position: absolute;
+  top: -11px;
+  right: 0.9rem;
+  left: 0.9rem;
+  height: 1px;
+  content: "";
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .admin-tabs a svg,
@@ -128,6 +134,8 @@
 
 .admin-sidebar--collapsed .admin-brand__identity {
   justify-content: center;
+  width: 46px;
+  gap: 0;
 }
 
 .admin-sidebar--collapsed .admin-brand__copy {
@@ -140,6 +148,15 @@
 .admin-sidebar--collapsed .admin-tabs {
   justify-items: center;
   gap: 10px;
+}
+
+.admin-sidebar--collapsed .nav-control {
+  margin-top: 17px;
+}
+
+.admin-sidebar--collapsed .nav-control::before {
+  right: 4px;
+  left: 4px;
 }
 
 .admin-sidebar--collapsed .admin-tabs a,
@@ -265,11 +282,13 @@
   .admin-sidebar--collapsed .admin-brand {
     display: flex;
     justify-items: initial;
-    padding: 6px 8px 26px;
+    padding: 8px 8px 28px;
   }
 
   .admin-sidebar--collapsed .admin-brand__identity {
     justify-content: flex-start;
+    width: auto;
+    gap: 12px;
   }
 
   .admin-sidebar--collapsed .admin-brand__copy {
@@ -288,6 +307,15 @@
   .admin-sidebar--collapsed .admin-tabs {
     justify-items: initial;
     gap: 7px;
+  }
+
+  .admin-sidebar--collapsed .nav-control {
+    margin-top: 15px;
+  }
+
+  .admin-sidebar--collapsed .nav-control::before {
+    right: 0.9rem;
+    left: 0.9rem;
   }
 
   .admin-sidebar--collapsed .admin-tabs a,
