@@ -116,9 +116,6 @@
   background: var(--kc-burgundy);
   font-weight: 850;
   box-shadow: 0 12px 28px rgba(153, 28, 40, 0.2);
-  transition:
-    filter 180ms ease,
-    background-color 180ms ease;
 }
 
 .primary-action {
