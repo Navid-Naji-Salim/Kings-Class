@@ -2,18 +2,20 @@
   --kc-navy: #06274b;
   --kc-navy-900: #021a34;
   --kc-steel: #385574;
-  --kc-gold: #dba145;
-  --kc-gold-soft: #f4d899;
-  --kc-topbar: #f5e7d0;
-  --kc-topbar-border: rgba(6, 39, 75, 0.16);
+  --kc-gold: #c98f35;
+  --kc-gold-soft: #f3d99f;
+  --kc-topbar: #f8efe1;
+  --kc-topbar-border: rgba(6, 39, 75, 0.18);
+  --kc-surface-border: rgba(6, 39, 75, 0.11);
+  --kc-control-border: rgba(6, 39, 75, 0.14);
   --kc-burgundy: #991c28;
   --kc-cream: #fbfaf7;
   --kc-paper: #ffffff;
-  --kc-mist: #edf2f6;
+  --kc-mist: #f3f6f9;
   --kc-ink: #162033;
-  --kc-muted: #6c7788;
-  --kc-border: #dfe5ea;
-  --kc-shadow: 0 24px 70px rgba(6, 39, 75, 0.16);
+  --kc-muted: #647184;
+  --kc-border: #dce3ea;
+  --kc-shadow: 0 20px 54px rgba(6, 39, 75, 0.13);
   --kc-radius: 8px;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

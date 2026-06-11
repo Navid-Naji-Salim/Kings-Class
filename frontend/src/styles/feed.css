@@ -1,5 +1,6 @@
 .feed-page {
   padding: 34px 36px 52px;
+  background: var(--kc-paper);
 }
 
 .feed-hero {
@@ -13,8 +14,9 @@
   border-radius: var(--kc-radius);
   color: var(--kc-paper);
   background:
-    linear-gradient(135deg, rgba(6, 39, 75, 0.96), rgba(56, 85, 116, 0.9)),
+    linear-gradient(135deg, rgba(6, 39, 75, 0.98), rgba(42, 70, 101, 0.94)),
     var(--kc-navy);
+  box-shadow: 0 16px 42px rgba(6, 39, 75, 0.14);
 }
 
 .feed-hero::after {
@@ -81,10 +83,10 @@
 
 .composer,
 .feed-card {
-  border: 1px solid var(--kc-border);
+  border: 1px solid var(--kc-surface-border);
   border-radius: var(--kc-radius);
   background: var(--kc-paper);
-  box-shadow: 0 14px 38px rgba(6, 39, 75, 0.08);
+  box-shadow: 0 12px 30px rgba(6, 39, 75, 0.06);
 }
 
 .composer {
@@ -116,9 +118,9 @@
 
 .composer select,
 .composer textarea {
-  border: 1px solid var(--kc-border);
+  border: 1px solid var(--kc-control-border);
   border-radius: var(--kc-radius);
-  background: var(--kc-cream);
+  background: #fbfcfd;
 }
 
 .composer select {
@@ -141,7 +143,7 @@
 
 .composer textarea:focus {
   border-color: var(--kc-gold);
-  box-shadow: 0 0 0 4px rgba(219, 161, 69, 0.14);
+  box-shadow: 0 0 0 4px rgba(201, 143, 53, 0.14);
 }
 
 .composer__footer {
@@ -156,11 +158,22 @@
   gap: 7px;
   min-height: 38px;
   padding: 0 12px;
-  border: 1px solid var(--kc-border);
+  border: 1px solid var(--kc-control-border);
   border-radius: var(--kc-radius);
   color: var(--kc-steel);
   background: var(--kc-paper);
   font-weight: 750;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.soft-button:hover,
+.feed-card__footer button:hover {
+  border-color: rgba(6, 39, 75, 0.22);
+  color: var(--kc-navy);
+  background: #f8fafc;
 }
 
 .publish-button {
@@ -231,8 +244,8 @@
   margin: 18px 0 12px;
   padding: 7px 10px;
   border-radius: 999px;
-  color: var(--kc-burgundy);
-  background: rgba(153, 28, 40, 0.08);
+  color: #7f1722;
+  background: rgba(153, 28, 40, 0.075);
   font-size: 0.78rem;
   font-weight: 850;
 }
@@ -255,7 +268,7 @@
   padding: 8px 10px;
   border-radius: var(--kc-radius);
   color: var(--kc-navy);
-  background: var(--kc-mist);
+  background: #f4f7fa;
   font-size: 0.84rem;
   font-weight: 760;
 }
@@ -263,7 +276,7 @@
 .feed-card__footer {
   margin-top: 18px;
   padding-top: 16px;
-  border-top: 1px solid var(--kc-border);
+  border-top: 1px solid var(--kc-surface-border);
 }
 
 .comment-preview {
@@ -272,7 +285,7 @@
   margin-top: 14px;
   padding: 12px 14px;
   border-radius: var(--kc-radius);
-  background: var(--kc-cream);
+  background: #f8fafc;
 }
 
 .comment-preview strong {

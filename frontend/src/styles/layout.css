@@ -18,8 +18,8 @@
   padding: 19px 15px;
   color: var(--kc-paper);
   background:
-    linear-gradient(180deg, rgba(6, 39, 75, 0.985), rgba(2, 26, 52, 0.985)),
-    radial-gradient(circle at 25% 10%, rgba(219, 161, 69, 0.26), transparent 18rem);
+    radial-gradient(circle at 14% 8%, rgba(201, 143, 53, 0.18), transparent 15rem),
+    linear-gradient(180deg, #06274b 0%, #021a34 100%);
   overflow: hidden;
   transition: padding 240ms ease;
 }
@@ -74,6 +74,7 @@
   font-weight: 780;
   transition:
     background-color 420ms ease,
+    box-shadow 420ms ease,
     color 420ms ease;
 }
 
@@ -99,7 +100,7 @@
 .admin-tabs a.active,
 .admin-tabs a:hover {
   color: var(--kc-paper);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .nav-control:hover {
@@ -113,7 +114,7 @@
 }
 
 .admin-tabs a.active {
-  background: rgba(219, 161, 69, 0.22);
+  background: linear-gradient(90deg, rgba(201, 143, 53, 0.3), rgba(255, 255, 255, 0.08));
   box-shadow: inset 3px 0 0 var(--kc-gold);
 }
 
@@ -251,8 +252,10 @@
   gap: 20px;
   padding: 18px 36px;
   border-bottom: 1px solid var(--kc-topbar-border);
-  background: var(--kc-topbar);
-  box-shadow: 0 12px 28px rgba(6, 39, 75, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0)),
+    var(--kc-topbar);
+  box-shadow: 0 10px 26px rgba(6, 39, 75, 0.08);
 }
 
 .admin-topbar h1 {
@@ -277,10 +280,21 @@
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--kc-border);
+  border: 1px solid var(--kc-control-border);
   border-radius: var(--kc-radius);
   color: var(--kc-navy);
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 1px 2px rgba(6, 39, 75, 0.05);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.icon-button:hover {
+  border-color: rgba(6, 39, 75, 0.22);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 7px 16px rgba(6, 39, 75, 0.09);
 }
 
 .admin-user {
@@ -288,9 +302,10 @@
   align-items: center;
   gap: 10px;
   padding: 6px 12px 6px 6px;
-  border: 1px solid var(--kc-border);
+  border: 1px solid var(--kc-control-border);
   border-radius: var(--kc-radius);
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 1px 2px rgba(6, 39, 75, 0.05);
 }
 
 .admin-user > span {
@@ -300,7 +315,7 @@
   place-items: center;
   border-radius: 50%;
   color: var(--kc-paper);
-  background: var(--kc-gold);
+  background: linear-gradient(135deg, var(--kc-gold), #b77d2c);
   font-weight: 900;
 }
 
