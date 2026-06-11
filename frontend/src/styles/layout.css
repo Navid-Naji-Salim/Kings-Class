@@ -3,9 +3,7 @@
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
   transition: grid-template-columns 240ms ease;
-  background:
-    radial-gradient(circle at 88% 4%, rgba(219, 161, 69, 0.18), transparent 26%),
-    var(--kc-cream);
+  background: var(--kc-paper);
 }
 
 .admin-shell--sidebar-collapsed {
@@ -239,6 +237,7 @@
 
 .admin-main {
   min-width: 0;
+  background: var(--kc-paper);
 }
 
 .admin-topbar {
@@ -251,9 +250,9 @@
   justify-content: space-between;
   gap: 20px;
   padding: 18px 36px;
-  border-bottom: 1px solid rgba(119, 77, 20, 0.28);
-  background: var(--kc-gold);
-  box-shadow: 0 14px 34px rgba(119, 77, 20, 0.18);
+  border-bottom: 1px solid var(--kc-topbar-border);
+  background: var(--kc-topbar);
+  box-shadow: 0 12px 28px rgba(6, 39, 75, 0.1);
 }
 
 .admin-topbar h1 {
@@ -264,7 +263,7 @@
 }
 
 .admin-topbar .eyebrow {
-  color: rgba(2, 26, 52, 0.72);
+  color: rgba(2, 26, 52, 0.68);
 }
 
 .admin-actions {
@@ -278,10 +277,10 @@
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(119, 77, 20, 0.28);
+  border: 1px solid var(--kc-border);
   border-radius: var(--kc-radius);
   color: var(--kc-navy);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .admin-user {
@@ -289,9 +288,9 @@
   align-items: center;
   gap: 10px;
   padding: 6px 12px 6px 6px;
-  border: 1px solid rgba(119, 77, 20, 0.28);
+  border: 1px solid var(--kc-border);
   border-radius: var(--kc-radius);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .admin-user > span {
