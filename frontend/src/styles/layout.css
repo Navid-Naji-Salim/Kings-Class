@@ -242,22 +242,29 @@
 }
 
 .admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   min-height: 92px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   padding: 18px 36px;
-  border-bottom: 1px solid var(--kc-border);
-  background: rgba(251, 250, 247, 0.86);
-  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(119, 77, 20, 0.28);
+  background: var(--kc-gold);
+  box-shadow: 0 14px 34px rgba(119, 77, 20, 0.18);
 }
 
 .admin-topbar h1 {
   margin: 0;
-  color: var(--kc-navy);
+  color: var(--kc-navy-900);
   font-size: 1.6rem;
   letter-spacing: 0;
+}
+
+.admin-topbar .eyebrow {
+  color: rgba(2, 26, 52, 0.72);
 }
 
 .admin-actions {
@@ -271,10 +278,10 @@
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--kc-border);
+  border: 1px solid rgba(119, 77, 20, 0.28);
   border-radius: var(--kc-radius);
   color: var(--kc-navy);
-  background: var(--kc-paper);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .admin-user {
@@ -282,9 +289,9 @@
   align-items: center;
   gap: 10px;
   padding: 6px 12px 6px 6px;
-  border: 1px solid var(--kc-border);
+  border: 1px solid rgba(119, 77, 20, 0.28);
   border-radius: var(--kc-radius);
-  background: var(--kc-paper);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .admin-user > span {
