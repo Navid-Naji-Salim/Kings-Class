@@ -326,7 +326,7 @@
 }
 
 .icon-button--signout:hover {
-  background: #ffe8ee;
+  background: #ffdfe8;
   border-color: rgba(6, 39, 75, 0.14);
   box-shadow: none;
 }
