@@ -297,6 +297,23 @@
   box-shadow: 0 7px 16px rgba(6, 39, 75, 0.09);
 }
 
+.icon-button svg {
+  position: relative;
+  z-index: 1;
+}
+
+.icon-button--signout {
+  transition:
+    background-color 420ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 420ms ease;
+}
+
+.icon-button--signout:hover {
+  background: #f4c7c7;
+}
+
 .icon-button__tooltip {
   position: absolute;
   top: calc(100% + 12px);
