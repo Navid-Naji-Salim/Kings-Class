@@ -17,9 +17,7 @@
   height: 100vh;
   padding: 19px 15px;
   color: var(--kc-paper);
-  background:
-    radial-gradient(circle at 14% 8%, rgba(201, 143, 53, 0.18), transparent 15rem),
-    linear-gradient(180deg, #06274b 0%, #021a34 100%);
+  background: linear-gradient(180deg, #06274b 0%, #021a34 100%);
   overflow: hidden;
   transition: padding 240ms ease;
 }
