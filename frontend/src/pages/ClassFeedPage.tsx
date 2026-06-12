@@ -19,7 +19,6 @@ export function ClassFeedPage() {
     <section className="feed-page">
       <div className="feed-hero">
         <div>
-          <p className="eyebrow">Class Feed</p>
           <h2>Daily classroom story, ready for families.</h2>
           <p>Teachers can publish learning moments, celebrations, and simple announcements in a friendly timeline.</p>
         </div>

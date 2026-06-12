@@ -263,8 +263,8 @@
   letter-spacing: 0;
 }
 
-.admin-topbar .eyebrow {
-  color: rgba(2, 26, 52, 0.68);
+.admin-page-title {
+  min-width: 0;
 }
 
 .admin-actions {
@@ -276,6 +276,8 @@
 .icon-button {
   width: 42px;
   height: 42px;
+  position: relative;
+  overflow: hidden;
   display: grid;
   place-items: center;
   border: 1px solid var(--kc-control-border);
@@ -286,13 +288,38 @@
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
-    box-shadow 180ms ease;
+    box-shadow 180ms ease,
+    color 420ms ease;
+}
+
+.icon-button svg {
+  position: relative;
+  z-index: 1;
 }
 
 .icon-button:hover {
   border-color: rgba(6, 39, 75, 0.22);
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 7px 16px rgba(6, 39, 75, 0.09);
+}
+
+.icon-button--signout::before {
+  position: absolute;
+  inset: 0;
+  background: #d94a45;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 420ms ease;
+}
+
+.icon-button--signout:hover {
+  border-color: rgba(217, 74, 69, 0.56);
+  color: var(--kc-paper);
+}
+
+.icon-button--signout:hover::before {
+  transform: scaleX(1);
 }
 
 .admin-user {

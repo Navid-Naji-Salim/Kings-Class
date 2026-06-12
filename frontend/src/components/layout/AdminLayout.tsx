@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Bell, BookOpen, GraduationCap, LogOut, MessageCircle, PanelLeftClose, PanelLeftOpen, School, Settings } from "lucide-react";
-import { NavLink, Outlet } from "react-router-dom";
+import { BookOpen, GraduationCap, LogOut, MessageCircle, PanelLeftClose, PanelLeftOpen, School, Settings } from "lucide-react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { BrandMark } from "../ui/BrandMark";
 
@@ -14,7 +14,10 @@ const navItems = [
 
 export function AdminLayout() {
   const { user, logout } = useAuth();
+  const location = useLocation();
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const activeNavItem = navItems.find((item) => location.pathname.startsWith(item.to));
+  const pageTitle = activeNavItem?.label ?? "Admin";
 
   return (
     <main className={`admin-shell${isSidebarCollapsed ? " admin-shell--sidebar-collapsed" : ""}`}>
@@ -52,14 +55,10 @@ export function AdminLayout() {
 
       <section className="admin-main">
         <header className="admin-topbar">
-          <div>
-            <p className="eyebrow">King's Class</p>
-            <h1>Admin Area</h1>
+          <div className="admin-page-title">
+            <h1>{pageTitle}</h1>
           </div>
           <div className="admin-actions">
-            <button className="icon-button" type="button" aria-label="Notifications">
-              <Bell size={19} />
-            </button>
             <div className="admin-user">
               <span>{user?.name.charAt(0)}</span>
               <div>
@@ -67,7 +66,7 @@ export function AdminLayout() {
                 <small>{user?.email}</small>
               </div>
             </div>
-            <button className="icon-button" type="button" aria-label="Sign out" onClick={logout}>
+            <button className="icon-button icon-button--signout" type="button" aria-label="Sign out" onClick={logout}>
               <LogOut size={19} />
             </button>
           </div>

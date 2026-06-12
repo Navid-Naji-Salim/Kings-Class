@@ -5,11 +5,7 @@ import { ClassFeedPage } from "./pages/ClassFeedPage";
 import { LoginPage } from "./pages/LoginPage";
 
 function EmptySection({ title }: { title: string }) {
-  return (
-    <section className="empty-section" aria-label={title}>
-      <h1>{title}</h1>
-    </section>
-  );
+  return <section className="empty-section" aria-label={title} />;
 }
 
 export default function App() {
