@@ -20,12 +20,12 @@ export function ClassFeedPage() {
       <div className="feed-hero">
         <div>
           <h2>Daily classroom story, ready for families.</h2>
-          <p>Teachers can publish learning moments, celebrations, and simple announcements in a friendly timeline.</p>
+          <p>Teachers can post learning moments, celebrations, and simple announcements in a friendly timeline.</p>
         </div>
         <div className="feed-stats" aria-label="Feed summary">
           <span>
             <strong>{stats.posts}</strong>
-            Updates
+            Posts
           </span>
           <span>
             <strong>{stats.seen}</strong>
@@ -39,7 +39,7 @@ export function ClassFeedPage() {
       </div>
 
       <div className="feed-grid">
-        <Composer onPublish={(post) => setPosts((currentPosts) => [post, ...currentPosts])} />
+        <Composer onPost={(post) => setPosts((currentPosts) => [post, ...currentPosts])} />
         <div className="timeline">
           {posts.map((post) => (
             <FeedCard key={post.id} post={post} />

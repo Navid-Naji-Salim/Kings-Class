@@ -2,11 +2,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { AdminLayout } from "./components/layout/AdminLayout";
 import { ClassFeedPage } from "./pages/ClassFeedPage";
+import { ClassesPage } from "./pages/ClassesPage";
 import { LoginPage } from "./pages/LoginPage";
-
-function EmptySection({ title }: { title: string }) {
-  return <section className="empty-section" aria-label={title} />;
-}
+import { MessagesPage } from "./pages/MessagesPage";
+import { SettingsPage } from "./pages/SettingsPage";
+import { StudentsPage } from "./pages/StudentsPage";
 
 export default function App() {
   return (
@@ -22,10 +22,10 @@ export default function App() {
       >
         <Route index element={<Navigate to="/admin/feed" replace />} />
         <Route path="feed" element={<ClassFeedPage />} />
-        <Route path="classes" element={<EmptySection title="Classes" />} />
-        <Route path="students" element={<EmptySection title="Students" />} />
-        <Route path="messages" element={<EmptySection title="Messages" />} />
-        <Route path="settings" element={<EmptySection title="Settings" />} />
+        <Route path="classes" element={<ClassesPage />} />
+        <Route path="students" element={<StudentsPage />} />
+        <Route path="messages" element={<MessagesPage />} />
+        <Route path="settings" element={<SettingsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>

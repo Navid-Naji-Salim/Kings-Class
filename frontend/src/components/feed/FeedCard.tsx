@@ -1,4 +1,6 @@
-import { Heart, MessageCircle, PartyPopper, ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import type { FormEvent } from "react";
+import { Heart, MessageCircle, PartyPopper, Send, ShieldCheck } from "lucide-react";
 import type { FeedPost } from "../../types/feed";
 
 const typeLabels = {
@@ -8,6 +10,40 @@ const typeLabels = {
 };
 
 export function FeedCard({ post }: { post: FeedPost }) {
+  const [hearts, setHearts] = useState(post.reactions.hearts);
+  const [cheers, setCheers] = useState(post.reactions.cheers);
+  const [hasHearted, setHasHearted] = useState(false);
+  const [hasCheered, setHasCheered] = useState(false);
+  const [comments, setComments] = useState(post.comments);
+  const [commentBody, setCommentBody] = useState("");
+
+  function toggleHeart() {
+    setHasHearted((current) => {
+      setHearts((count) => count + (current ? -1 : 1));
+      return !current;
+    });
+  }
+
+  function toggleCheer() {
+    setHasCheered((current) => {
+      setCheers((count) => count + (current ? -1 : 1));
+      return !current;
+    });
+  }
+
+  function handleComment(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!commentBody.trim()) {
+      return;
+    }
+
+    setComments((currentComments) => [
+      { id: crypto.randomUUID(), author: "Admin", body: commentBody.trim() },
+      ...currentComments
+    ]);
+    setCommentBody("");
+  }
+
   return (
     <article className={`feed-card feed-card--${post.type}`}>
       <header className="feed-card__header">
@@ -36,28 +72,43 @@ export function FeedCard({ post }: { post: FeedPost }) {
         </div>
       ) : null}
 
+      {post.media?.length ? (
+        <div className="post-media-grid">
+          {post.media.map((item) => (
+            <img key={item.id} src={item.url} alt={item.name} />
+          ))}
+        </div>
+      ) : null}
+
       <footer className="feed-card__footer">
-        <button type="button">
+        <button className={`reaction-button reaction-button--heart${hasHearted ? " is-active" : ""}`} type="button" onClick={toggleHeart} aria-pressed={hasHearted}>
           <Heart size={17} />
-          {post.reactions.hearts}
+          {hearts}
         </button>
-        <button type="button">
+        <button className={`reaction-button reaction-button--cheer${hasCheered ? " is-active" : ""}`} type="button" onClick={toggleCheer} aria-pressed={hasCheered}>
           <PartyPopper size={17} />
-          {post.reactions.cheers}
+          {cheers}
         </button>
-        <button type="button">
+        <button className="reaction-button" type="button">
           <MessageCircle size={17} />
-          {post.comments.length}
+          {comments.length}
         </button>
         <span>{post.reactions.seen} seen</span>
       </footer>
 
-      {post.comments.length ? (
+      {comments.length ? (
         <div className="comment-preview">
-          <strong>{post.comments[0].author}</strong>
-          <span>{post.comments[0].body}</span>
+          <strong>{comments[0].author}</strong>
+          <span>{comments[0].body}</span>
         </div>
       ) : null}
+
+      <form className="comment-form" onSubmit={handleComment}>
+        <input value={commentBody} onChange={(event) => setCommentBody(event.target.value)} placeholder="Add a quick comment..." aria-label="Add a comment" />
+        <button type="submit" aria-label="Post comment">
+          <Send size={16} />
+        </button>
+      </form>
     </article>
   );
 }

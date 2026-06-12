@@ -9,6 +9,11 @@ export type FeedPost = {
   createdAt: string;
   body: string;
   attachments?: string[];
+  media?: Array<{
+    id: string;
+    name: string;
+    url: string;
+  }>;
   reactions: {
     hearts: number;
     cheers: number;
