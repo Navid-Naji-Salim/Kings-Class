@@ -203,7 +203,7 @@
 }
 
 .nav-tooltip--side::before {
-  right: 100%;
+  right: calc(100% - 1px);
   top: 50%;
   border-top: 6px solid transparent;
   border-right: 6px solid var(--kc-burgundy);
@@ -221,7 +221,7 @@
 
 .nav-tooltip--bottom::before {
   left: 50%;
-  bottom: 100%;
+  bottom: calc(100% - 1px);
   border-right: 6px solid transparent;
   border-bottom: 6px solid var(--kc-burgundy);
   border-left: 6px solid transparent;
