@@ -66,8 +66,9 @@ export function AdminLayout() {
                 <small>{user?.email}</small>
               </div>
             </div>
-            <button className="icon-button icon-button--signout" type="button" aria-label="Sign out" onClick={logout}>
+            <button className="icon-button icon-button--signout" type="button" data-tooltip="Sign out" aria-label="Sign out" onClick={logout}>
               <LogOut size={19} />
+              <span className="icon-button__tooltip" aria-hidden="true">Sign out</span>
             </button>
           </div>
         </header>
