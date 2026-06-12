@@ -12,6 +12,14 @@ const navItems = [
   { to: "/admin/settings", label: "Settings", icon: Settings }
 ];
 
+function NavTooltip({ children, placement }: { children: string; placement: "side" | "bottom" }) {
+  return (
+    <span className={`nav-tooltip nav-tooltip--${placement}`} aria-hidden="true">
+      {children}
+    </span>
+  );
+}
+
 export function AdminLayout() {
   const { user, logout } = useAuth();
   const location = useLocation();
@@ -33,22 +41,23 @@ export function AdminLayout() {
 
         <nav className="admin-tabs" aria-label="Admin navigation">
           {navItems.map(({ to, label, icon: Icon }) => (
-            <NavLink key={to} to={to} data-tooltip={label}>
+            <NavLink key={to} to={to}>
               <Icon className="nav-icon" size={18} />
-              <span>{label}</span>
+              <span className="nav-label">{label}</span>
+              <NavTooltip placement="side">{label}</NavTooltip>
             </NavLink>
           ))}
           <span className="nav-control-divider" aria-hidden="true" />
           <button
             className="nav-control"
             type="button"
-            data-tooltip={isSidebarCollapsed ? "Expand" : "Collapse"}
             aria-label={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
             aria-pressed={isSidebarCollapsed}
             onClick={() => setIsSidebarCollapsed((current) => !current)}
           >
             {isSidebarCollapsed ? <PanelLeftOpen className="nav-icon" size={18} /> : <PanelLeftClose className="nav-icon" size={18} />}
-            <span>{isSidebarCollapsed ? "Expand" : "Collapse"}</span>
+            <span className="nav-label">{isSidebarCollapsed ? "Expand" : "Collapse"}</span>
+            <NavTooltip placement="side">{isSidebarCollapsed ? "Expand" : "Collapse"}</NavTooltip>
           </button>
         </nav>
       </aside>
@@ -66,9 +75,9 @@ export function AdminLayout() {
                 <small>{user?.email}</small>
               </div>
             </div>
-            <button className="icon-button icon-button--signout" type="button" data-tooltip="Sign out" aria-label="Sign out" onClick={logout}>
+            <button className="icon-button icon-button--signout" type="button" aria-label="Logout" onClick={logout}>
               <LogOut size={19} />
-              <span className="icon-button__tooltip" aria-hidden="true">Sign out</span>
+              <NavTooltip placement="bottom">Logout</NavTooltip>
             </button>
           </div>
         </header>
