@@ -182,7 +182,7 @@
   padding: 8px 11px;
   border-radius: 7px;
   color: var(--kc-paper);
-  background: #000000;
+  background: var(--kc-burgundy);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
   content: attr(data-tooltip);
   font-size: 0.76rem;
@@ -203,7 +203,7 @@
   width: 0;
   height: 0;
   border-top: 6px solid transparent;
-  border-right: 6px solid #000000;
+  border-right: 6px solid var(--kc-burgundy);
   border-bottom: 6px solid transparent;
   content: "";
   opacity: 0;
